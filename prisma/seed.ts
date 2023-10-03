@@ -28,7 +28,7 @@ function nextPaymentMonthGenerator(billingPeriod: SUBSCRIPTION_BILLING_PERIOD) {
 async function main() {
   const user = await prisma.user.upsert({
     where: {
-      email: "daniel.noworyta@gmail.com",
+      email: "jachympatryk99@gmail.com",
     },
     update: {
       subscriptions: {
@@ -148,9 +148,9 @@ async function main() {
       },
     },
     create: {
-      id: "test123",
-      email: "daniel.noworyta@gmail.com",
-      name: "Daniel Noworyta",
+      id: "1",
+      email: "jachympatryk99@gmail.com",
+      name: "Patryk Jachym",
       subscriptions: {
         create: [
           {
