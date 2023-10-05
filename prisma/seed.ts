@@ -151,6 +151,7 @@ async function main() {
       id: "1",
       email: "jachympatryk99@gmail.com",
       name: "Patryk Jachym",
+      phone_number: "577723506",
       subscriptions: {
         create: [
           {
