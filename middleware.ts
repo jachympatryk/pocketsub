@@ -1,12 +1,9 @@
 import { authMiddleware } from "@clerk/nextjs";
+import HomePage from "./app/(marketing)/page";
+import DashboardPage from "./app/(application)/(app)/dashboard/page";
 
-const publicRoutes = ["/", "/blog", "/api/webhooks/user"];
-
-// This example protects all routes including api/trpc routes
-// Please edit this to allow other routes to be public as needed.
-// See https://clerk.com/docs/references/nextjs/auth-middleware for more information about configuring your middleware
 export default authMiddleware({
-  publicRoutes,
+  publicRoutes: ["/", "/blog", "/api/webhooks/user"],
 });
 
 export const config = {
