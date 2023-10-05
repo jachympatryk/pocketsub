@@ -3,14 +3,19 @@ import Link from "next/link";
 import React from "react";
 import logo from "../../../public/img/Logo.png";
 import Image from "next/image";
-import { AppLink } from "@/components";
+import { AppLink, UserButton } from "@/components";
 import { NavLink } from "@/components/app-link/app-link.types";
-import { UrlObject } from "url";
+import { Inter } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "Pocketsub",
   description: "Manage your payments",
 };
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const navLink: NavLink[] = [
   {
@@ -27,8 +32,8 @@ const navLink: NavLink[] = [
 
 export default function ApplicationLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex h-screen">
-      <aside className="flex w-64 flex-col justify-between">
+    <div className={`flex h-screen ${inter.className}`}>
+      <aside className="flex w-64 flex-col justify-between overflow-auto">
         <div>
           <Link href={"/"} className="flex items-center gap-2 mx-auto mt-6 ml-6">
             <Image src={logo} alt="Pocketsub logo" height={28} />
@@ -41,10 +46,7 @@ export default function ApplicationLayout({ children }: { children: React.ReactN
           </nav>
         </div>
 
-        <div>
-          <p>Add new subscription</p>
-          <button>new subscription</button>
-        </div>
+        <UserButton />
       </aside>
       <main className="max-h-full grow overflow-hidden bg-zinc-200">{children}</main>
     </div>
