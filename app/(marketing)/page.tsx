@@ -21,7 +21,7 @@ export default function HomePage() {
         </Link>
         <Image src={heroImg} alt="Hero image" className="mx-auto mt-10 px-4" />
       </section>
-      <section className="mx-auto max-w-7xl">
+      <section className="mx-auto max-w-7xl mb-4">
         <p className="mt-20 text-center text-xs font-bold uppercase tracking-[2.4px] text-zinc-500">
           what is pocketsub?
         </p>
