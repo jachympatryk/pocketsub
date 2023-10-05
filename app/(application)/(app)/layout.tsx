@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function ApplicationLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex gap-8">
-      <aside>navigaition from app</aside>
+      <aside>navigation from app</aside>
       <main>{children}</main>
     </div>
   );
