@@ -6,7 +6,7 @@ import { Webhook, WebhookRequiredHeaders } from "svix";
 
 const webhookSecret = process.env.WEBHOOK_SECRET || "";
 
-async function handler(request: Request) {
+async function handler(request: Request): Promise<void | Response> {
   const payload = await request.json();
   const headersList = headers();
   const heads = {
@@ -29,7 +29,7 @@ async function handler(request: Request) {
   if (eventType === "user.created" || eventType === "user.updated") {
     const { id, email_addresses, username } = evt.data;
 
-    return await prisma.user.upsert({
+    const result = await prisma.user.upsert({
       where: { id },
       create: {
         id,
@@ -41,7 +41,11 @@ async function handler(request: Request) {
         email: email_addresses[0].email_address,
       },
     });
+
+    return NextResponse.json(result);
   }
+
+  return NextResponse.json({}, { status: 400 });
 }
 
 type Event = {
